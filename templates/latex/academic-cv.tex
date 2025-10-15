@@ -1,0 +1,172 @@
+% Academic CV LaTeX Template
+% Compile with: pdflatex cv.tex
+
+\documentclass[11pt,letterpaper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{fontawesome}
+\usepackage{bibentry}
+\usepackage{etaremune}
+
+% Page setup
+\geometry{top=1in, bottom=1in, left=1in, right=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Colors
+\definecolor{darkblue}{RGB}{0,50,150}
+\definecolor{gray}{RGB}{80,80,80}
+
+% Custom commands
+\newcommand{\name}[1]{\centerline{\Large\textbf{#1}}}
+\newcommand{\jobtitle}[1]{\centerline{\large\textit{#1}}}
+\newcommand{\contact}[1]{\centerline{#1}}
+\newcommand{\cvsection}[1]{\textcolor{darkblue}{\textbf{\large #1}}\hrule\vspace{0.1in}}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    citecolor=darkblue
+}
+
+\begin{document}
+
+% Header
+\name{{NAME}}
+\jobtitle{{TITLE}}
+\vspace{0.1in}
+\contact{%
+    {INSTITUTION\_AFFILIATION} \\
+    {ADDRESS} \\
+    \faEnvelope\ \href{mailto:{EMAIL}}{{EMAIL}} $|$ \faPhone\ {PHONE} \\
+    \faGlobe\ \href{{WEBSITE}}{{WEBSITE}} $|$ \faLinkedin\ \href{{LINKEDIN}}{LinkedIn}
+}
+\vspace{0.2in}
+
+% Research Interests
+\cvsection{Research Interests}
+{RESEARCH\_INTERESTS}
+\vspace{0.15in}
+
+% Education
+\cvsection{Education}
+
+\textbf{{DEGREE}} \hfill \textcolor{gray}{{EDU\_START\_DATE} -- {EDU\_END\_DATE}} \\
+\textit{{INSTITUTION}}, {EDUCATION\_LOCATION} \\
+Dissertation: "{THESIS\_TITLE}" \\
+Advisor: {ADVISOR} \\
+GPA: {GPA}
+\vspace{0.15in}
+
+% Academic Positions
+\cvsection{Academic Positions}
+
+\textbf{{POSITION}} \hfill \textcolor{gray}{{START\_DATE} -- {END\_DATE}} \\
+\textit{{INSTITUTION}}, {POSITION\_LOCATION} \\
+{POSITION\_DESCRIPTION}
+\vspace{0.15in}
+
+% Publications
+\cvsection{Publications}
+
+\textbf{Peer-Reviewed Articles}
+\begin{etaremune}
+    \item {AUTHOR\_LIST}. "{PAPER\_TITLE}." \textit{{JOURNAL\_NAME}} {VOLUME}.{ISSUE} ({YEAR}): {PAGES}.
+    \item {AUTHOR\_LIST\_2}. "{PAPER\_TITLE\_2}." \textit{{JOURNAL\_NAME\_2}} {VOLUME\_2}.{ISSUE\_2} ({YEAR\_2}): {PAGES\_2}.
+\end{etaremune}
+
+\textbf{Conference Presentations}
+\begin{etaremune}
+    \item {PRESENTER}. "{PRESENTATION\_TITLE}." {CONFERENCE\_NAME}, {CONFERENCE\_LOCATION}, {CONFERENCE\_DATE}.
+    \item {PRESENTER\_2}. "{PRESENTATION\_TITLE\_2}." {CONFERENCE\_NAME\_2}, {CONFERENCE\_LOCATION\_2}, {CONFERENCE\_DATE\_2}.
+\end{etaremune}
+
+\textbf{Book Chapters}
+\begin{etaremune}
+    \item {AUTHOR\_LIST}. "{CHAPTER\_TITLE}." In \textit{{BOOK\_TITLE}}, edited by {EDITOR}, {CHAPTER\_PAGES}. {PUBLISHER}, {BOOK\_YEAR}.
+\end{etaremune}
+\vspace{0.15in}
+
+% Grants and Funding
+\cvsection{Grants and Funding}
+
+\textbf{{GRANT\_TITLE}} \hfill \textcolor{gray}{{GRANT\_PERIOD}} \\
+{FUNDING\_AGENCY} \\
+Amount: {GRANT\_AMOUNT} $|$ Role: {GRANT\_ROLE}
+\vspace{0.15in}
+
+% Teaching Experience
+\cvsection{Teaching Experience}
+
+\textbf{{COURSE\_TITLE}} ({COURSE\_CODE}) \hfill \textcolor{gray}{{SEMESTER} {ACADEMIC\_YEAR}} \\
+\textit{{TEACHING\_INSTITUTION}} $|$ Role: {TEACHING\_ROLE} $|$ Enrollment: {ENROLLMENT}
+\vspace{0.15in}
+
+% Service
+\cvsection{Service}
+
+\textbf{Editorial Service}
+\begin{itemize}[leftmargin=0.2in]
+    \item {JOURNAL\_NAME}: {EDITORIAL\_ROLE} ({EDITORIAL\_YEAR\_START} -- {EDITORIAL\_YEAR\_END})
+\end{itemize}
+
+\textbf{Professional Service}
+\begin{itemize}[leftmargin=0.2in]
+    \item {SERVICE\_ORGANIZATION}: {SERVICE\_ROLE} ({SERVICE\_YEAR})
+\end{itemize}
+
+\textbf{University Service}
+\begin{itemize}[leftmargin=0.2in]
+    \item {COMMITTEE\_NAME}: {COMMITTEE\_ROLE} ({COMMITTEE\_YEAR\_START} -- {COMMITTEE\_YEAR\_END})
+\end{itemize}
+\vspace{0.15in}
+
+% Honors and Awards
+\cvsection{Honors and Awards}
+
+\begin{itemize}[leftmargin=0.2in]
+    \item \textbf{{AWARD\_NAME}} -- {AWARDING\_ORGANIZATION} ({AWARD\_YEAR})
+    \item \textbf{{FELLOWSHIP\_NAME}} -- {FELLOWSHIP\_ORGANIZATION} ({FELLOWSHIP\_YEAR})
+\end{itemize}
+\vspace{0.15in}
+
+% Professional Memberships
+\cvsection{Professional Memberships}
+
+\begin{itemize}[leftmargin=0.2in]
+    \item {ORGANIZATION\_1} ({MEMBERSHIP\_YEAR\_1} -- Present)
+    \item {ORGANIZATION\_2} ({MEMBERSHIP\_YEAR\_2} -- Present)
+\end{itemize}
+\vspace{0.15in}
+
+% Technical Skills
+\cvsection{Technical Skills}
+
+\begin{tabular}{@{}ll@{}}
+\textbf{Programming Languages:} & {PROGRAMMING\_LANGUAGES} \\
+\textbf{Statistical Software:} & {STATISTICAL\_SOFTWARE} \\
+\textbf{Research Tools:} & {RESEARCH\_TOOLS} \\
+\textbf{Languages:} & {SPOKEN\_LANGUAGES}
+\end{tabular}
+\vspace{0.15in}
+
+% References
+\cvsection{References}
+
+Available upon request.
+
+\vspace{0.2in}
+\centerline{\footnotesize Curriculum Vitae -- Last updated: {UPDATE\_DATE}}
+
+\end{document}
