@@ -1,0 +1,34 @@
+# Build artifacts
+*.pdf
+*.docx
+*.doc
+!examples/*.pdf
+!templates/*.pdf
+
+# Temporary files
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if using any automation tools)
+node_modules/
+npm-debug.log*
+
+# Python cache (if using any Python scripts)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Personal sensitive information
+/data/personal/
+/private/

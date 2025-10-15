@@ -1,0 +1,76 @@
+# Skills and Competencies
+# Organize your skills by category for easy reference
+
+technical_skills:
+  programming_languages:
+    - name: "Python"
+      proficiency: "Advanced"
+      years_experience: 5
+    - name: "Java"
+      proficiency: "Intermediate"
+      years_experience: 3
+    - name: "JavaScript"
+      proficiency: "Intermediate"
+      years_experience: 4
+    - name: "Go"
+      proficiency: "Beginner"
+      years_experience: 1
+
+  frameworks_libraries:
+    - name: "Django"
+      proficiency: "Advanced"
+    - name: "React"
+      proficiency: "Intermediate"
+    - name: "Spring Boot"
+      proficiency: "Intermediate"
+    - name: "Flask"
+      proficiency: "Advanced"
+
+  databases:
+    - name: "PostgreSQL"
+      proficiency: "Advanced"
+    - name: "MongoDB"
+      proficiency: "Intermediate"
+    - name: "Redis"
+      proficiency: "Intermediate"
+
+  cloud_platforms:
+    - name: "AWS"
+      proficiency: "Advanced"
+      certifications: ["Solutions Architect"]
+    - name: "Google Cloud"
+      proficiency: "Intermediate"
+    - name: "Azure"
+      proficiency: "Beginner"
+
+  tools_technologies:
+    - "Docker & Kubernetes"
+    - "Git & GitHub"
+    - "Jenkins/CI-CD"
+    - "Terraform"
+    - "Monitoring (Prometheus, Grafana)"
+
+soft_skills:
+  - "Leadership & Team Management"
+  - "Problem Solving"
+  - "Communication"
+  - "Project Management"
+  - "Mentoring & Training"
+  - "Cross-functional Collaboration"
+  - "Agile/Scrum Methodologies"
+
+languages:
+  - language: "English"
+    proficiency: "Native"
+  - language: "Spanish"
+    proficiency: "Conversational"
+  - language: "French"
+    proficiency: "Basic"
+
+# Professional development interests
+interests:
+  - "Machine Learning & AI"
+  - "Cloud Architecture"
+  - "Open Source Contribution"
+  - "Technical Writing"
+  - "Speaking at Conferences"

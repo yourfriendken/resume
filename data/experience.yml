@@ -1,0 +1,55 @@
+# Work Experience
+# List your work experience in reverse chronological order (most recent first)
+
+experience:
+  - position: "Senior Software Engineer"
+    company: "Tech Company Inc."
+    location: "San Francisco, CA"
+    type: "Full-time"
+    start_date: "2022-01"
+    end_date: "Present"
+    description: |
+      Brief description of your role and the company.
+    achievements:
+      - "Led development of microservices architecture serving 1M+ users"
+      - "Reduced system latency by 40% through optimization initiatives"
+      - "Mentored 3 junior developers and established code review processes"
+    technologies:
+      - Python
+      - Docker
+      - Kubernetes
+      - AWS
+
+  - position: "Software Engineer"
+    company: "Previous Company LLC"
+    location: "Austin, TX"
+    type: "Full-time"
+    start_date: "2020-06"
+    end_date: "2021-12"
+    description: |
+      Description of your previous role and responsibilities.
+    achievements:
+      - "Developed REST APIs used by mobile and web applications"
+      - "Implemented automated testing reducing bugs by 30%"
+      - "Collaborated with cross-functional teams on product features"
+    technologies:
+      - Java
+      - Spring Boot
+      - PostgreSQL
+      - Jenkins
+
+# Template for additional experience entries
+# - position: "Job Title"
+#   company: "Company Name"
+#   location: "City, State"
+#   type: "Full-time|Part-time|Contract|Internship"
+#   start_date: "YYYY-MM"
+#   end_date: "YYYY-MM|Present"
+#   description: |
+#     Brief description of the role
+#   achievements:
+#     - "Quantified achievement with impact"
+#     - "Another significant accomplishment"
+#   technologies:
+#     - Technology 1
+#     - Technology 2
