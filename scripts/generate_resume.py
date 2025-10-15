@@ -152,7 +152,7 @@ class ResumeGenerator:
         # Generate and save HTML
         if 'html' in formats or 'all' in formats:
             html_content = self.generate_html(markdown_content, template_name)
-            html_path = self.output_dir / f"resume.html"
+            html_path = self.output_dir / f"index.html"
             with open(html_path, 'w', encoding='utf-8') as f:
                 f.write(html_content)
             output_files['html'] = html_path
