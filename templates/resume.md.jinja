@@ -1,0 +1,117 @@
+# {{ name }}
+## {{ title }}
+{% if location %}
+{{ location }}
+{% endif %}
+
+{% if contact %}
+**Contact Information:**
+
+{% if contact.email %} ✉️ [{{ contact.email }}](mailto:{{ contact.email }}) {% endif %}
+
+
+{% if contact.phone %} 📞 [{{ contact.phone }}](tel:{{ contact.phone }}) {% endif %}
+
+
+{% if contact.linkedin %}  [linkedin.com/in/{{ contact.linkedin.username }}](https://linkedin.com/in/{{ contact.linkedin.username }}){% endif %}
+
+
+{% if contact.github %}  [github.com/{{ contact.github.username }}](https://github.com/{{ contact.github.username }}) {% endif %}
+
+{% endif %}
+
+---
+
+## Professional Summary
+
+{{ summary }}
+
+---
+
+{% if experience %}
+## Work Experience
+
+{% for job in experience %}
+### {{ job.position }} | {{ job.company }}
+*{{ job.start_date | format_date }} - {{ job.end_date | format_date }}{% if job.location %} | {{ job.location }}{% endif %}*
+
+{{ job.description }}
+
+{% if job.achievements %}
+**Key Achievements:**
+{% for achievement in job.achievements %}
+- {{ achievement }}
+{% endfor %}
+{% endif %}
+
+{% if job.technologies %}
+**Technologies:** {{ job.technologies | join_list }}
+{% endif %}
+
+---
+
+{% endfor %}
+{% endif %}
+
+{% if technical_skills %}
+## Technical Skills
+
+{% if technical_skills.programming_languages %}
+**Programming Languages:** {{ technical_skills.programming_languages | map(attribute='name') | list | join_list }}
+{% endif %}
+
+{% if technical_skills.frameworks_libraries %}
+**Frameworks & Libraries:** {{ technical_skills.frameworks_libraries | map(attribute='name') | list | join_list }}
+{% endif %}
+
+{% if technical_skills.databases %}
+**Databases:** {{ technical_skills.databases | map(attribute='name') | list | join_list }}
+{% endif %}
+
+{% if technical_skills.cloud_platforms %}
+**Cloud Platforms:** {{ technical_skills.cloud_platforms | map(attribute='name') | list | join_list }}
+{% endif %}
+
+{% if technical_skills.tools_technologies %}
+**Tools & Technologies:** {{ technical_skills.tools_technologies | map(attribute='name') | list | join_list }}
+{% endif %}
+
+---
+
+{% endif %}
+
+{% if education %}
+## Education
+
+{% for degree in education %}
+### {{ degree.degree }} 
+
+{% if degree.field %} in {{ degree.field }}{% endif %}
+
+{% if degree.school %}
+{{ degree.school }}
+{% endif %}
+
+{% if degree.minor %}
+**Minor:** {{ degree.minor }}
+{% endif %}
+
+**{{ degree.institution }}** {% if degree.location %} | {{ degree.location }}{% endif %}  
+*{{ degree.end_date | format_date }}*
+
+{% if degree.gpa %}
+**GPA:** {{ degree.gpa }}
+{% endif %}
+
+
+{% if degree.relevant_coursework %}
+**Relevant Coursework:** {{ degree.relevant_coursework | join_list }}
+{% endif %}
+
+---
+
+{% endfor %}
+{% endif %}
+
+
+{% if contact.website %} 🧑‍💻 [{{ contact.website }}]({{ contact.website }}) {% endif %}
