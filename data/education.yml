@@ -1,0 +1,47 @@
+# Education History
+# List your educational background in reverse chronological order
+
+education:
+  - degree: "Master of Science in Data Science"
+    institution: "Indiana University"
+    school: "Luddy School of Informatics, Computing, and Engineering"
+    location: "Bloomington, IN"
+    end_date: "2025"
+    gpa: "3.8/4.0"
+    relevant_coursework:
+      - "Machine Learning"
+      - "Distributed Systems"
+      - "Software Engineering"
+    thesis: "Optimizing Distributed Database Performance"  # Optional
+  
+  - degree: "Graduate Certificate in Data Science"
+    institution: "Indiana University"
+    school: "Luddy School of Informatics, Computing, and Engineering"
+    location: "Bloomington, IN"
+    end_date: "2022"
+  
+  - degree: "Graduate Certificate in Management"
+    institution: "Indiana University Northwest"
+    school: "School of Business and Economics"
+    end_date: "2015"
+
+  - degree: "Bachelor of Science in Computer Information Systems"
+    minor: "Business Administration"
+    institution: "Indiana University Northwest"
+    school: "College of Arts and Sciences"
+    end_date: "2013"
+
+
+#   - name: "Certified Kubernetes Administrator"
+#     issuer: "Cloud Native Computing Foundation"
+#     date: "2021-11"
+#     expiry: "2024-11"
+
+# Template for additional entries
+# - degree: "Degree Name"
+#   institution: "Institution Name"
+#   school: "School Name"  # Optional
+#   location: "City, State"
+#   start_date: "YYYY-MM"
+#   end_date: "YYYY-MM"
+#   gpa: "X.X/4.0"  # Optional

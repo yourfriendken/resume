@@ -1,0 +1,78 @@
+# Work Experience
+# List your work experience in reverse chronological order (most recent first)
+
+experience:
+  - position: "Principal Software Engineer"
+    company: "Indiana University"
+    location: "Bloomington, IN"
+    type: "Full-time"
+    start_date: "2015"
+    end_date: "Present"
+    description: |
+      - Native Apps and Enterprise integrations (2022-Present)
+      - Digital Campus - Native Apps (2019-2022)
+      - Digital Communication Development (July 2017-2019)
+      - IT Communication Office (2015-2017)
+    technologies: 
+      - iOS and Swift development
+      - Android development
+      - Java and Spring
+      - PHP and Laravel
+      - Node.js
+      - C# and .NET
+      - Kubernetes and Docker
+
+  - position: "Lead Systems Analyst / Programmer"
+    company: "Indiana University Northwest"
+    location: "Gary, IN"
+    type: "Full-time"
+    start_date: "2011"
+    end_date: "2015"
+    technologies:
+      - VB, C#, and .NET
+      - PHP and Laravel
+      - Coldfusion and ActionScript
+      - "Frontend: HTML, CSS, JavaScript"
+
+  - position: "Consultant / Engineer"
+    company: "Rume Health"
+    location: "Huntington Beach, CA (Remote)"
+    type: "Contract"
+    start_date: "2022"
+    end_date: "2025"
+    technologies:
+      - Python, Flask, and FastAPI
+      - Node.js
+      - FHIR, HL7, Health Information Systems integrations
+      - CD/CI and DevOps
+      - AWS and Cloud Infrastructure
+      - Browser Extensions development
+  
+  - position: "Lead Programmer"
+    company: "AC Incorporated"
+    location: "Valparaiso, IN"
+    type: "Full-time"
+    start_date: "2010"
+    end_date: "2011"
+    description: Developed custom software solutions for clients
+    technologies:
+      - VB, C#, .NET
+      - PHP and MySQL
+  
+
+
+# Template for additional experience entries
+# - position: "Job Title"
+#   company: "Company Name"
+#   location: "City, State"
+#   type: "Full-time|Part-time|Contract|Internship"
+#   start_date: "YYYY-MM"
+#   end_date: "YYYY-MM|Present"
+#   description: |
+#     Brief description of the role
+#   achievements:
+#     - "Quantified achievement with impact"
+#     - "Another significant accomplishment"
+#   technologies:
+#     - Technology 1
+#     - Technology 2

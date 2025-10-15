@@ -1,0 +1,25 @@
+# Personal Information
+# Update this file with your personal details
+
+name: "Kenneth Jones"
+title: "Software Engineer"
+location: "Valparaiso, Indiana, USA"
+
+contact:
+  email: "work@kennethdjones.com"
+  phone: "+1 (574) 387-2008"
+  website: "https://kennethdjones.com"
+  linkedin: 
+    username: "kenneth-d-jones"
+  github:
+    username: "kennethj"
+
+summary: |
+  Experienced Software Engineer with a strong background in web and native app development, as well as systems and integration architecture.
+  Polyglot coder more concerned with interesting solutions than specific technologies.
+  Experienced with leading teams, managing projects, and collaborating across disparate teams, including non-technical stakeholders.
+
+# Optional additional fields
+availability: "Open to new opportunities"
+willing_to_relocate: true
+remote_work: true

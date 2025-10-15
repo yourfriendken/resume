@@ -1,0 +1,92 @@
+# Skills and Competencies
+# Organize your skills by category for easy reference
+
+technical_skills:
+  programming_languages:
+    - name: "C#"
+      proficiency: "Advanced"
+      years_experience: 14
+    - name: "PHP"
+      proficiency: "Advanced"
+      years_experience: 12
+    - name: "JavaScript/Node.js"
+      proficiency: "Advanced"
+      years_experience: 20
+    - name: "Python"
+      proficiency: "Advanced"
+      years_experience: 15
+    - name: "Java"
+      proficiency: "Intermediate"
+      years_experience: 6
+    - name: "Go"
+      proficiency: "Intermediate"
+      years_experience: 4
+    - name: "Swift"
+      proficiency: "Intermediate"
+      years_experience: 4
+    - name: "Dart"
+      proficiency: "Advanced"
+      years_experience: 5
+
+  frameworks_libraries:
+    - name: "Node.js"
+      proficiency: "Advanced"
+    - name: "Express"
+      proficiency: "Intermediate"
+    - name: "Django"
+      proficiency: "Advanced"
+    - name: "React"
+      proficiency: "Intermediate"
+    - name: "Vue.js"
+      proficiency: "Intermediate"
+    - name: "Angular"
+      proficiency: "Intermediate"
+    - name: "Spring Boot"
+      proficiency: "Intermediate"
+    - name: "Flask"
+      proficiency: "Advanced"
+
+  databases:
+    - name: "PostgreSQL"
+      proficiency: "Advanced"
+    - name: "SQL Server"
+      proficiency: "Intermediate"
+    - name: "MySQL"
+      proficiency: "Intermediate"
+    - name: "MongoDB"
+      proficiency: "Intermediate"
+    - name: "Redis"
+      proficiency: "Intermediate"
+    - name: "Elasticsearch/OpenSearch"
+      proficiency: "Intermediate"
+
+  cloud_platforms:
+    - name: "AWS"
+      proficiency: "Advanced"
+    - name: "Google Cloud"
+      proficiency: "Intermediate"
+    - name: "Azure"
+      proficiency: "Intermediate"
+
+  tools_technologies:
+    - "Docker & Kubernetes"
+    - "Git & GitHub / GitLab"
+    - "GitHub Actions, Azure DevOps, Jenkins, TeamCity"
+    - "Helm Charts, Terraform"
+
+soft_skills:
+  - "Leadership & Team Management"
+  - "Problem Solving"
+  - "Communication"
+  - "Project Management"
+  - "Mentoring & Training"
+  - "Cross-functional Collaboration"
+  - "Agile Methodologies"
+
+
+# Professional development interests
+interests:
+  - "Machine Learning & AI"
+  - "Cloud Architecture"
+  - "Open Source Contribution"
+  - "Technical Writing"
