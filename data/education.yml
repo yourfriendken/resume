@@ -31,12 +31,6 @@ education:
     school: "College of Arts and Sciences"
     awarded: "2013"
 
-
-#   - name: "Certified Kubernetes Administrator"
-#     issuer: "Cloud Native Computing Foundation"
-#     date: "2021-11"
-#     expiry: "2024-11"
-
 # Template for additional entries
 # - degree: "Degree Name"
 #   institution: "Institution Name"
