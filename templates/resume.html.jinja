@@ -7,8 +7,17 @@
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
         h1, h2, h3 { color: #333; }
+        h3 { margin-bottom: 5px; }
+        h2 { border-bottom: 2px solid #333;}
+        p { margin: 0.2em 0 0.4em; }
         .contact-info { margin-bottom: 20px; }
         .section { margin-bottom: 30px; }
+        table tr th { text-align: left; vertical-align: top; font-weight: bold; padding: 0;}
+        table tr td { text-align: left; vertical-align: top; padding: 0;}
+        table tr td::before { content: ": "; font-weight: bold; }
+        table { border-collapse: collapse; margin-bottom: 10px; border-spacing: 0; }
+        p:has(+table) { margin-bottom: 0; }
+        hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
     </style>
 </head>
 <body>

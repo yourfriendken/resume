@@ -7,25 +7,36 @@
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
         h1, h2, h3 { color: #333; }
+        h3 { margin-bottom: 5px; }
+        h2 { border-bottom: 2px solid #333;}
+        p { margin: 0.2em 0 0.4em; }
         .contact-info { margin-bottom: 20px; }
         .section { margin-bottom: 30px; }
+        table tr th { text-align: left; vertical-align: top; font-weight: bold; padding: 0;}
+        table tr td { text-align: left; vertical-align: top; padding: 0;}
+        table tr td::before { content: ": "; font-weight: bold; }
+        table { border-collapse: collapse; margin-bottom: 10px; border-spacing: 0; }
+        p:has(+table) { margin-bottom: 0; }
+        hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
     </style>
 </head>
 <body>
-<h1 id="kenneth-jones">Kenneth Jones</h1>
-<h2 id="software-engineer">Software Engineer</h2>
+<h1 id="kenneth-jones-software-engineer">Kenneth Jones | Software Engineer</h1>
 <p>Valparaiso, Indiana, USA</p>
-<p><strong>Contact Information:</strong></p>
-<p>✉️ <a href="mailto:work@kennethdjones.com">work@kennethdjones.com</a> </p>
-<p>📞 <a href="tel:+1 (574) 387-2008">+1 (574) 387-2008</a> </p>
-<p><a href="https://linkedin.com/in/kenneth-d-jones">linkedin.com/in/kenneth-d-jones</a></p>
-<p><a href="https://github.com/kennethj">github.com/kennethj</a> </p>
-<hr />
+<h2 id="contact-information">Contact Information</h2>
+<table>
+
+ <tr><th>Phone</th><td> <a href="tel:+1 (574) 387-2008">+1 (574) 387-2008</a></td></tr> 
+ <tr><th>Email</th><td> <a href="mailto:work@kennethdjones.com">work@kennethdjones.com</a></td></tr> 
+ <tr><th>Website</th><td> <a href="https://about.kennethdjones.com">about.kennethdjones.com</a></td></tr> 
+ <tr><th>LinkedIn</th><td> <a href="https://linkedin.com/in/kenneth-d-jones">linkedin.com/in/kenneth-d-jones</a></td></tr> 
+ <tr><th>GitHub</th><td> <a href="https://github.com/kennethj">github.com/kennethj</a></td></tr> 
+</table>
+
 <h2 id="professional-summary">Professional Summary</h2>
 <p>Experienced Software Engineer with a strong background in web and native app development, as well as systems and integration architecture.
 Polyglot coder more concerned with interesting solutions than specific technologies.
 Experienced with leading teams, managing projects, and collaborating across disparate teams, including non-technical stakeholders.</p>
-<hr />
 <h2 id="work-experience">Work Experience</h2>
 <h3 id="principal-software-engineer-indiana-university">Principal Software Engineer | Indiana University</h3>
 <p><em>2015 - Present | Bloomington, IN</em></p>
@@ -36,51 +47,58 @@ Experienced with leading teams, managing projects, and collaborating across disp
 <li>IT Communication Office (2015-2017)</li>
 </ul>
 <p><strong>Technologies:</strong> iOS and Swift development, Android development, Java and Spring, PHP and Laravel, Node.js, C# and .NET, Kubernetes and Docker</p>
-<hr />
 <h3 id="lead-systems-analyst-programmer-indiana-university-northwest">Lead Systems Analyst / Programmer | Indiana University Northwest</h3>
 <p><em>2011 - 2015 | Gary, IN</em></p>
 <p><strong>Technologies:</strong> VB, C#, and .NET, PHP and Laravel, Coldfusion and ActionScript, Frontend: HTML, CSS, JavaScript</p>
-<hr />
 <h3 id="consultant-engineer-rume-health">Consultant / Engineer | Rume Health</h3>
 <p><em>2022 - 2025 | Huntington Beach, CA (Remote)</em></p>
 <p><strong>Technologies:</strong> Python, Flask, and FastAPI, Node.js, FHIR, HL7, Health Information Systems integrations, CD/CI and DevOps, AWS and Cloud Infrastructure, Browser Extensions development</p>
-<hr />
 <h3 id="lead-programmer-ac-incorporated">Lead Programmer | AC Incorporated</h3>
 <p><em>2010 - 2011 | Valparaiso, IN</em></p>
 <p>Developed custom software solutions for clients</p>
 <p><strong>Technologies:</strong> VB, C#, .NET, PHP and MySQL</p>
-<hr />
 <h2 id="technical-skills">Technical Skills</h2>
 <p><strong>Programming Languages:</strong> C#, PHP, JavaScript/Node.js, Python, Java, Go, Swift, Dart</p>
 <p><strong>Frameworks &amp; Libraries:</strong> Node.js, Express, Django, React, Vue.js, Angular, Spring Boot, Flask</p>
 <p><strong>Databases:</strong> PostgreSQL, SQL Server, MySQL, MongoDB, Redis, Elasticsearch/OpenSearch</p>
 <p><strong>Cloud Platforms:</strong> AWS, Google Cloud, Azure</p>
-<p><strong>Tools &amp; Technologies:</strong> , , , </p>
-<hr />
+<p><strong>Tools &amp; Technologies:</strong> Docker &amp; Kubernetes, Git &amp; GitHub / GitLab, GitHub Actions, Azure DevOps, Jenkins, TeamCity, Helm Charts, Terraform</p>
 <h2 id="education">Education</h2>
 <h3 id="master-of-science-in-data-science">Master of Science in Data Science</h3>
-<p>Luddy School of Informatics, Computing, and Engineering</p>
-<p><strong>Indiana University</strong>  | Bloomington, IN<br />
-<em>2025</em></p>
-<p><strong>GPA:</strong> 3.8/4.0</p>
-<p><strong>Relevant Coursework:</strong> Machine Learning, Distributed Systems, Software Engineering</p>
+<p><strong>Indiana University</strong> 
+ | Luddy School of Informatics, Computing, and Engineering  | Bloomington, IN  </p>
+<table>
+<tr><th>Awarded</th><td>2025</td></tr>
+<tr><th>GPA</th><td>3.8/4.0</td></tr>
+<tr><th>Coursework</th><td>Machine Learning, Distributed Systems, Software Engineering</td></tr>
+</table>
+
 <hr />
 <h3 id="graduate-certificate-in-data-science">Graduate Certificate in Data Science</h3>
-<p>Luddy School of Informatics, Computing, and Engineering</p>
-<p><strong>Indiana University</strong>  | Bloomington, IN<br />
-<em>2022</em></p>
+<p><strong>Indiana University</strong> 
+ | Luddy School of Informatics, Computing, and Engineering  | Bloomington, IN  </p>
+<table>
+<tr><th>Awarded</th><td>2022</td></tr>
+</table>
+
 <hr />
 <h3 id="graduate-certificate-in-management">Graduate Certificate in Management</h3>
-<p>School of Business and Economics</p>
-<p><strong>Indiana University Northwest</strong> <br />
-<em>2015</em></p>
+<p><strong>Indiana University Northwest</strong> 
+ | School of Business and Economics   </p>
+<table>
+<tr><th>Awarded</th><td>2015</td></tr>
+</table>
+
 <hr />
 <h3 id="bachelor-of-science-in-computer-information-systems">Bachelor of Science in Computer Information Systems</h3>
-<p>College of Arts and Sciences</p>
-<p><strong>Minor:</strong> Business Administration</p>
-<p><strong>Indiana University Northwest</strong> <br />
-<em>2013</em></p>
+<p><strong>Indiana University Northwest</strong> 
+ | College of Arts and Sciences   </p>
+<table>
+<tr><th>Awarded</th><td>2013</td></tr>
+<tr><th>Minor</th><td>Business Administration</td></tr>
+</table>
+
 <hr />
-<p>🧑‍💻 <a href="https://kennethdjones.com">https://kennethdjones.com</a> </p>
+<p><em>Source Code: <a href="https://github.com/yourfriendken/resume">https://github.com/yourfriendken/resume </a></em></p>
 </body>
 </html>

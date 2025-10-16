@@ -8,7 +8,9 @@ location: "Valparaiso, Indiana, USA"
 contact:
   email: "work@kennethdjones.com"
   phone: "+1 (574) 387-2008"
-  website: "https://kennethdjones.com"
+  website: 
+    url: "https://about.kennethdjones.com"
+    text: "about.kennethdjones.com"
   linkedin: 
     username: "kenneth-d-jones"
   github:
@@ -23,3 +25,4 @@ summary: |
 availability: "Open to new opportunities"
 willing_to_relocate: true
 remote_work: true
+source_code: "https://github.com/yourfriendken/resume"

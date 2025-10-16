@@ -1,32 +1,33 @@
-# {{ name }}
-## {{ title }}
+# {{ name }} | {{ title }}
+
 {% if location %}
 {{ location }}
 {% endif %}
 
 {% if contact %}
-**Contact Information:**
 
-{% if contact.email %} ✉️ [{{ contact.email }}](mailto:{{ contact.email }}) {% endif %}
+## Contact Information
 
+<table>
 
-{% if contact.phone %} 📞 [{{ contact.phone }}](tel:{{ contact.phone }}) {% endif %}
+{% if contact.phone %} <tr><th>Phone</th><td> <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></td></tr> {% endif %}
 
+{% if contact.email %} <tr><th>Email</th><td> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td></tr> {% endif %}
 
-{% if contact.linkedin %}  [linkedin.com/in/{{ contact.linkedin.username }}](https://linkedin.com/in/{{ contact.linkedin.username }}){% endif %}
+{% if contact.website %} <tr><th>Website</th><td> <a href="{{ contact.website.url }}">{{ contact.website.text }}</a></td></tr> {% endif %}
 
+{% if contact.linkedin %} <tr><th>LinkedIn</th><td> <a href="https://linkedin.com/in/{{ contact.linkedin.username }}">linkedin.com/in/{{ contact.linkedin.username }}</a></td></tr> {% endif %}
 
-{% if contact.github %}  [github.com/{{ contact.github.username }}](https://github.com/{{ contact.github.username }}) {% endif %}
+{% if contact.github %} <tr><th>GitHub</th><td> <a href="https://github.com/{{ contact.github.username }}">github.com/{{ contact.github.username }}</a></td></tr> {% endif %}
 
+</table>
 {% endif %}
 
----
 
 ## Professional Summary
 
 {{ summary }}
 
----
 
 {% if experience %}
 ## Work Experience
@@ -48,7 +49,6 @@
 **Technologies:** {{ job.technologies | join_list }}
 {% endif %}
 
----
 
 {% endfor %}
 {% endif %}
@@ -73,10 +73,9 @@
 {% endif %}
 
 {% if technical_skills.tools_technologies %}
-**Tools & Technologies:** {{ technical_skills.tools_technologies | map(attribute='name') | list | join_list }}
+**Tools & Technologies:** {{ technical_skills.tools_technologies | join_list }}
 {% endif %}
 
----
 
 {% endif %}
 
@@ -86,32 +85,28 @@
 {% for degree in education %}
 ### {{ degree.degree }} 
 
-{% if degree.field %} in {{ degree.field }}{% endif %}
+**{{ degree.institution }}** 
+{% if degree.school %} | {{ degree.school }} {% endif %}
+{% if degree.location %} | {{ degree.location }}{% endif %}  
 
-{% if degree.school %}
-{{ degree.school }}
-{% endif %}
-
+<table>
+<tr><th>Awarded</th><td>{{ degree.awarded | format_date }}</td></tr>
 {% if degree.minor %}
-**Minor:** {{ degree.minor }}
+<tr><th>Minor</th><td>{{ degree.minor }}</td></tr>
 {% endif %}
-
-**{{ degree.institution }}** {% if degree.location %} | {{ degree.location }}{% endif %}  
-*{{ degree.end_date | format_date }}*
-
 {% if degree.gpa %}
-**GPA:** {{ degree.gpa }}
+<tr><th>GPA</th><td>{{ degree.gpa }}</td></tr>
 {% endif %}
-
-
 {% if degree.relevant_coursework %}
-**Relevant Coursework:** {{ degree.relevant_coursework | join_list }}
+<tr><th>Coursework</th><td>{{ degree.relevant_coursework | join_list }}</td></tr>
 {% endif %}
+</table>
 
----
-
+--- 
 {% endfor %}
 {% endif %}
 
 
-{% if contact.website %} 🧑‍💻 [{{ contact.website }}]({{ contact.website }}) {% endif %}
+{% if source_code %}
+*Source Code: [{{ source_code }} ]({{ source_code }})*
+{% endif %}
