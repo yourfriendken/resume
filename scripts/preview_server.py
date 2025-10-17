@@ -32,7 +32,7 @@ def start_server(port=8000):
             
             # Try to open browser automatically
             try:
-                webbrowser.open(f"http://localhost:{port}/")
+                webbrowser.open(f"http://localhost:{port}/docs/index.html")
             except:
                 pass
             
