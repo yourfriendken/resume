@@ -10,19 +10,7 @@ tasks:
   default:
     desc: Show available tasks
     silent: true
-    cmds:
-      - echo "Resume Generator Tasks:"
-      - echo ""
-      - echo "  task install    - Install Python dependencies"
-      - echo "  task resume     - Generate all formats"
-      - echo "  task markdown   - Generate markdown only"
-      - echo "  task html       - Generate HTML only" 
-      - echo "  task list       - List available templates"
-      - echo "  task clean      - Clean output directory"
-      - echo "  task preview    - Start preview server"
-      - echo ""
-      - echo "Variables:"
-      - echo "  TEMPLATE=name   - Specify template"
+    cmds: [task --list]
 
   setup:
     desc: Install Python dependencies
@@ -46,70 +34,30 @@ tasks:
       - mkdir -p {{.OUTPUT_DIR}}
     silent: true
 
-  resume:
+  generate:
     desc: Generate all formats
     deps: [setup-output]
     cmds:
       - "python {{.GENERATOR}} --template {{.TEMPLATE}} --format all"
 
-  markdown:
-    desc: Generate markdown only
+  pdf:
+    desc: Generate PDF using pandoc
     deps: [setup-output]
+    silent: true
     cmds:
-      - "{{.PYTHON}} {{.GENERATOR}} --template {{.TEMPLATE}} --format markdown"
-
-  html:
-    desc: Generate HTML only
-    deps: [setup-output]
-    cmds:
-      - "{{.PYTHON}} {{.GENERATOR}} --template {{.TEMPLATE}} --format html"
-
-  list:
-    desc: List available templates
-    cmds:
-      - "{{.PYTHON}} {{.GENERATOR}} --list-templates"
+      - "pandoc ./docs/index.html -o ./docs/resume.pdf --include-in-header=./templates/styles.latex --pdf-engine=pdflatex"
 
   preview:
     desc: Start preview server for HTML files
     cmds:
       - "{{.PYTHON}} scripts/preview_server.py"
 
-  clean:
-    desc: Clean output directory
-    cmds:
-      - rm -rf {{.OUTPUT_DIR}}/*
-      - echo "Output directory cleaned!"
-
-  watch:
-    desc: Watch for changes and regenerate
-    deps: [setup-output]
-    sources:
-      - "data/*.yml"
-      - "templates/**/*.md"
-      - "templates/**/*.html"
-    generates:
-      - "{{.OUTPUT_DIR}}/resume_{{.TEMPLATE}}.*"
-    cmds:
-      - "{{.PYTHON}} {{.GENERATOR}} --template {{.TEMPLATE}} --format all"
-      - echo "Resume regenerated"
-
-  check:
-    desc: Check if dependencies are installed
-    cmds:
-      - "{{.PYTHON}} --version"
-      - "{{.PYTHON}} -c 'import yaml, jinja2, markdown; print(\"All dependencies available\")'"
-    ignore_error: true
-
-  validate:
-    desc: Validate YAML data files
-    cmds:
-      - for file in data/*.yml; do echo "Validating $file"; {{.PYTHON}} -c "import yaml; yaml.safe_load(open('$file'))"; done
-      - echo "All YAML files are valid"
-
   all:
     desc: Complete workflow
+    deps: [setup]
+    silent: true
     cmds:
-      - task: install
-      - task: validate
-      - task: resume
+      - task: generate
+      - task: pdf
+      - task: preview
       - echo "Resume generation complete!"
