@@ -27,3 +27,30 @@ Scripts to generate my resume in various formats.
     ```zsh
     brew install task
     ```
+
+## Usage
+
+
+Generate the resume documents in HTML, PDF, and Markdown formats, and open a preview server to view the HTML version.
+
+```zsh
+task all
+```
+
+Generates the resume in Markdown and HTML formats.
+
+```zsh
+task generate
+```
+
+Create a PDF using the generated HTML applying latex template using Pandoc.
+
+```zsh
+task pdf
+```
+
+Open a local web server to preview the HTML version of the resume.
+
+```zsh
+task preview
+```
