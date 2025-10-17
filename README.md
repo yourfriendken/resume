@@ -37,7 +37,7 @@ Generate the resume documents in HTML, PDF, and Markdown formats, and open a pre
 task all
 ```
 
-Generates the resume in Markdown and HTML formats.
+Generate Markdown and HTML documents.
 
 ```zsh
 task generate
