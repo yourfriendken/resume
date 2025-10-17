@@ -93,10 +93,10 @@
 ### {{ degree.degree }} 
 
 **{{ degree.institution }}** {% if degree.school %} | {{ degree.school }} {% endif %} {% if degree.location %} | {{ degree.location }}{% endif %}  {% if degree.minor %}<br>**Minor** {{ degree.minor }}{% endif %}
+{% if degree.relevant_coursework %}<br>**Coursework:** {{ degree.relevant_coursework | join_list }}{% endif %}
 <br> Awarded {{ degree.awarded | format_date }}
 {% if degree.gpa %} | GPA {{ degree.gpa }} {% endif %}
 
-{% if degree.relevant_coursework %}<br>**Coursework:** {{ degree.relevant_coursework | join_list }}{% endif %}
 
 --- 
 {% endfor %}

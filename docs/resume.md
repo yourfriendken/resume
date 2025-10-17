@@ -49,7 +49,7 @@ Experienced with leading teams, managing projects, and collaborating across disp
 
 ---
 
-### Consultant / Engineer | Rume Health
+### Software Engineer (Consultant) | Rume Health
 *2022 - 2025 | Huntington Beach, CA (Remote)*
 
 
@@ -99,9 +99,9 @@ Developed custom software solutions for clients
 
 ### Master of Science in Data Science 
 
-**Indiana University**  | Luddy School of Informatics, Computing, and Engineering   | Bloomington, IN  <br> Awarded 2025
+**Indiana University**  | Luddy School of Informatics, Computing, and Engineering   | Bloomington, IN  <br>**Coursework:** Machine Learning, Distributed Systems, Software Engineering<br> Awarded 2025
  | GPA 3.8/4.0 
-<br>**Coursework:** Machine Learning, Distributed Systems, Software Engineering
+
 --- 
 ### Graduate Certificate in Data Science 
 
