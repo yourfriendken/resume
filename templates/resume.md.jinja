@@ -58,23 +58,29 @@
 ## Technical Skills
 
 {% if technical_skills.programming_languages %}
-**Programming Languages:** {{ technical_skills.programming_languages | map(attribute='name') | list | join_list }}
+
+**Programming Languages:**
+
+{% for language in technical_skills.programming_languages %}
+* {{ language.name }} ({{ language.proficiency }}) 
+{% endfor %}
+
 {% endif %}
 
 {% if technical_skills.frameworks_libraries %}
-**Frameworks & Libraries:** {{ technical_skills.frameworks_libraries | map(attribute='name') | list | join_list }}
+**Frameworks & Libraries:** <br> {{ technical_skills.frameworks_libraries | map(attribute='name') | list | join_list }}
 {% endif %}
 
 {% if technical_skills.databases %}
-**Databases:** {{ technical_skills.databases | map(attribute='name') | list | join_list }}
+**Databases:** <br> {{ technical_skills.databases | map(attribute='name') | list | join_list }}
 {% endif %}
 
 {% if technical_skills.cloud_platforms %}
-**Cloud Platforms:** {{ technical_skills.cloud_platforms | map(attribute='name') | list | join_list }}
+**Cloud Platforms:** <br> {{ technical_skills.cloud_platforms | map(attribute='name') | list | join_list }}
 {% endif %}
 
 {% if technical_skills.tools_technologies %}
-**Tools & Technologies:** {{ technical_skills.tools_technologies | join_list }}
+**Tools & Technologies:** <br> {{ technical_skills.tools_technologies | join_list }}
 {% endif %}
 
 
@@ -86,22 +92,11 @@
 {% for degree in education %}
 ### {{ degree.degree }} 
 
-**{{ degree.institution }}** 
-{% if degree.school %} | {{ degree.school }} {% endif %}
-{% if degree.location %} | {{ degree.location }}{% endif %}  
+**{{ degree.institution }}** {% if degree.school %} | {{ degree.school }} {% endif %} {% if degree.location %} | {{ degree.location }}{% endif %}  {% if degree.minor %}<br>**Minor** {{ degree.minor }}{% endif %}
+<br> Awarded {{ degree.awarded | format_date }}
+{% if degree.gpa %} | GPA {{ degree.gpa }} {% endif %}
 
-<table>
-<tr><th>Awarded</th><td>{{ degree.awarded | format_date }}</td></tr>
-{% if degree.minor %}
-<tr><th>Minor</th><td>{{ degree.minor }}</td></tr>
-{% endif %}
-{% if degree.gpa %}
-<tr><th>GPA</th><td>{{ degree.gpa }}</td></tr>
-{% endif %}
-{% if degree.relevant_coursework %}
-<tr><th>Coursework</th><td>{{ degree.relevant_coursework | join_list }}</td></tr>
-{% endif %}
-</table>
+{% if degree.relevant_coursework %}<br>**Coursework:** {{ degree.relevant_coursework | join_list }}{% endif %}
 
 --- 
 {% endfor %}

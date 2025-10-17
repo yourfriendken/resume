@@ -6,11 +6,10 @@
 \geometry{margin=1in }
 \usepackage{palatino} % main font
 
-
 \usepackage{longtable,booktabs}
 \setlength\LTleft{0pt}
 \setlength\LTright{0pt}
-\setlength{\LTpre}{0.5em}
+\setlength{\LTpre}{0.4em}
 \setlength{\LTpost}{0pt}
 % \setlength{\tabcolsep}{0.2em}
 \renewcommand{\arraystretch}{1.25}
@@ -18,12 +17,18 @@
 \renewcommand{\toprule}[2]{}
 \renewcommand{\bottomrule}[2]{}
 \renewcommand{\rule}[2]{
-    \vspace{-0.5em}
+    \vspace{0.5em}
     \hrule height 0pt
 }
 
 % % adjust headings to be larger
 \usepackage{sectsty}
 \sectionfont{\fontsize{20}{16}\selectfont}
-\subsectionfont{\fontsize{14}{14}\selectfont}
-\subsubsectionfont{\fontsize{12}{10}\vspace*{0.2em}\selectfont}
+\subsectionfont{\fontsize{15}{16}\selectfont}
+\subsubsectionfont{\fontsize{12}{12}\selectfont}
+\usepackage{titlesec}
+% \titlespacing*{\section}{0pt}{*0}{0.5em}
+% \titlespacing*{\subsection}{0pt}{*0}{0.3em}
+\titlespacing*{\subsubsection}{0pt}{*1}{0.2em}
+
+% \titlespacing*{\section}{0pt}{10ex}{2ex}

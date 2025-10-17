@@ -72,15 +72,26 @@ Developed custom software solutions for clients
 
 ## Technical Skills
 
-**Programming Languages:** C#, PHP, JavaScript/Node.js, Python, Java, Go, Swift, Dart
 
-**Frameworks & Libraries:** Node.js, Express, Django, React, Vue.js, Angular, Spring Boot, Flask
+**Programming Languages:**
 
-**Databases:** PostgreSQL, SQL Server, MySQL, MongoDB, Redis, Elasticsearch/OpenSearch
+* C# (Advanced) 
+* PHP (Advanced) 
+* JavaScript/Node.js (Advanced) 
+* Python (Advanced) 
+* Java (Intermediate) 
+* Go (Intermediate) 
+* Swift (Intermediate) 
+* Dart (Advanced) 
 
-**Cloud Platforms:** AWS, Google Cloud, Azure
 
-**Tools & Technologies:** Docker & Kubernetes, Git & GitHub / GitLab, GitHub Actions, Azure DevOps, Jenkins, TeamCity, Helm Charts, Terraform
+**Frameworks & Libraries:** <br> Node.js, Express, Django, React, Vue.js, Angular, Spring Boot, Flask
+
+**Databases:** <br> PostgreSQL, SQL Server, MySQL, MongoDB, Redis, Elasticsearch/OpenSearch
+
+**Cloud Platforms:** <br> AWS, Google Cloud, Azure
+
+**Tools & Technologies:** <br> Docker & Kubernetes, Git & GitHub / GitLab, GitHub Actions, Azure DevOps, Jenkins, TeamCity, Helm Charts, Terraform
 
 
 
@@ -88,45 +99,26 @@ Developed custom software solutions for clients
 
 ### Master of Science in Data Science 
 
-**Indiana University** 
- | Luddy School of Informatics, Computing, and Engineering  | Bloomington, IN  
-
-<table>
-<tr><th>Awarded</th><td>2025</td></tr>
-<tr><th>GPA</th><td>3.8/4.0</td></tr>
-<tr><th>Coursework</th><td>Machine Learning, Distributed Systems, Software Engineering</td></tr>
-</table>
-
+**Indiana University**  | Luddy School of Informatics, Computing, and Engineering   | Bloomington, IN  <br> Awarded 2025
+ | GPA 3.8/4.0 
+<br>**Coursework:** Machine Learning, Distributed Systems, Software Engineering
 --- 
 ### Graduate Certificate in Data Science 
 
-**Indiana University** 
- | Luddy School of Informatics, Computing, and Engineering  | Bloomington, IN  
+**Indiana University**  | Luddy School of Informatics, Computing, and Engineering   | Bloomington, IN  <br> Awarded 2022
 
-<table>
-<tr><th>Awarded</th><td>2022</td></tr>
-</table>
 
 --- 
 ### Graduate Certificate in Management 
 
-**Indiana University Northwest** 
- | School of Business and Economics   
+**Indiana University Northwest**  | School of Business and Economics    <br> Awarded 2015
 
-<table>
-<tr><th>Awarded</th><td>2015</td></tr>
-</table>
 
 --- 
 ### Bachelor of Science in Computer Information Systems 
 
-**Indiana University Northwest** 
- | College of Arts and Sciences   
+**Indiana University Northwest**  | College of Arts and Sciences    <br>**Minor** Business Administration<br> Awarded 2013
 
-<table>
-<tr><th>Awarded</th><td>2013</td></tr>
-<tr><th>Minor</th><td>Business Administration</td></tr>
-</table>
 
 --- 
 
