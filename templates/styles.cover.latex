@@ -1,0 +1,16 @@
+\makeatletter
+\renewcommand{\maketitle}{}
+\makeatother
+
+\usepackage{geometry}
+\geometry{margin=1in }
+\usepackage{palatino} % main font
+
+
+\renewcommand{\rule}[2]{
+    \vspace{1em}
+    \hrule height 1pt
+}
+
+% remove page numbers
+\pagenumbering{gobble}
