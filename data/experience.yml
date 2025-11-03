@@ -67,7 +67,7 @@ experience:
     type: "Contract"
     start_date: "2022"
     end_date: "2025"
-    description: Provided software engineering consulting for a health tech startup. Helped recover millions in automating insurance claims processing, insurance discovery, and health information systems integrations. 
+    description: Provided software engineering consulting for a health tech startup. Helped recover millions by automating insurance claims processing, insurance discovery, and various health information systems integrations. 
     technologies:
       - Python, Flask, and FastAPI
       - Node.js

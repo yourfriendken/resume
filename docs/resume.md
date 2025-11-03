@@ -74,7 +74,7 @@ Developed software solutions for a series of small businesses and non-profits th
 ### Software Engineer (Consultant) | Rume Health
 *2022 - 2025 | Huntington Beach, CA (Remote)*
 
-Provided software engineering consulting for a health tech startup. Helped recover millions in automating insurance claims processing, insurance discovery, and health information systems integrations.
+Provided software engineering consulting for a health tech startup. Helped recover millions by automating insurance claims processing, insurance discovery, and various health information systems integrations.
 
 
 **Technologies:** Python, Flask, and FastAPI, Node.js, FHIR, HL7, Health Information Systems integrations, CD/CI and DevOps, AWS and Cloud Infrastructure, Browser Extensions development
