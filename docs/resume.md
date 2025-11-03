@@ -82,7 +82,7 @@ Provided software engineering consulting for a health tech startup. Helped recov
 ---
 
 ### Software Engineer (Consultant) | Scranton University
-*2013 - 2014 | Huntington Beach, CA (Remote)*
+*2013 - 2014 | Scranton, PA (Remote)*
 
 Refactored and modernized legacy PHP including campus calendar application. Helped migrate to a content management system Cascade Server.
 
