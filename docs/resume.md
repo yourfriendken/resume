@@ -31,7 +31,7 @@ Experienced with leading teams, managing projects, and collaborating across disp
 Currently lead for the Native Apps development team, managing a group of developers building and maintaining iOS and Android applications for Indiana University, as well as various integration and backend services to support those applications.
 
 - Native Apps and Enterprise integrations (2022-Present)
-- Digital Campus - Native Apps (2019-2022)``
+- Digital Campus - Native Apps (2019-2022)
 - Digital Communication Development (July 2017-2019)
 - IT Communication Office (2015-2017)
 
