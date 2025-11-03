@@ -17,7 +17,7 @@ Valparaiso, Indiana, USA
 
 ## Professional Summary
 
-Experienced Software Engineer with a strong background in web and native app development, as well as systems and integration architecture.
+I am an experienced Software Engineer with a solid background in web and native app development, as well as systems and integration architecture.
 Polyglot coder more concerned with interesting solutions than specific technologies.
 Experienced with leading teams, managing projects, and collaborating across disparate teams, including non-technical stakeholders.
 
@@ -28,8 +28,10 @@ Experienced with leading teams, managing projects, and collaborating across disp
 ### Principal Software Engineer | Indiana University
 *2015 - Present | Bloomington, IN*
 
+Currently lead for the Native Apps development team, managing a group of developers building and maintaining iOS and Android applications for Indiana University, as well as various integration and backend services to support those applications.
+
 - Native Apps and Enterprise integrations (2022-Present)
-- Digital Campus - Native Apps (2019-2022)
+- Digital Campus - Native Apps (2019-2022)``
 - Digital Communication Development (July 2017-2019)
 - IT Communication Office (2015-2017)
 
@@ -49,23 +51,43 @@ Experienced with leading teams, managing projects, and collaborating across disp
 
 ---
 
+### Lead Programmer | AC Incorporated
+*2010 - 2011 | Valparaiso, IN*
+
+Developed custom software solutions for clients as well as supporting existing portfolio (ScoreCorrect, Dynaconnex, etc.)
+
+
+**Technologies:** VB, C#, .NET, PHP and MySQL
+
+---
+
+### Software Developer, IT Director | Genesis, Dynaconnex, Rainy Day Foundation, ScoreCorrect
+*2008 - 2011 | Valparaiso, IN*
+
+Developed software solutions for a series of small businesses and non-profits through various merges and acquisitions. Went from junior developer to IT Director over the course of less than three years.
+
+
+**Technologies:** C++, VB, C#, .NET, MS SQL Server, JavaScript, HTML, CSS
+
+---
+
 ### Software Engineer (Consultant) | Rume Health
 *2022 - 2025 | Huntington Beach, CA (Remote)*
 
-
+Provided software engineering consulting for a health tech startup. Helped recover millions in automating insurance claims processing, insurance discovery, and health information systems integrations.
 
 
 **Technologies:** Python, Flask, and FastAPI, Node.js, FHIR, HL7, Health Information Systems integrations, CD/CI and DevOps, AWS and Cloud Infrastructure, Browser Extensions development
 
 ---
 
-### Lead Programmer | AC Incorporated
-*2010 - 2011 | Valparaiso, IN*
+### Software Engineer (Consultant) | Scranton University
+*2013 - 2014 | Huntington Beach, CA (Remote)*
 
-Developed custom software solutions for clients
+Refactored and modernized legacy PHP including campus calendar application. Helped migrate to a content management system Cascade Server.
 
 
-**Technologies:** VB, C#, .NET, PHP and MySQL
+**Technologies:** PHP, HTML, CSS, JavaScript, Java, Velocity, Cascade Server
 
 ---
 

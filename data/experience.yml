@@ -9,8 +9,10 @@ experience:
     start_date: "2015"
     end_date: "Present"
     description: |
+      Currently lead for the Native Apps development team, managing a group of developers building and maintaining iOS and Android applications for Indiana University, as well as various integration and backend services to support those applications.
+
       - Native Apps and Enterprise integrations (2022-Present)
-      - Digital Campus - Native Apps (2019-2022)
+      - Digital Campus - Native Apps (2019-2022)``
       - Digital Communication Development (July 2017-2019)
       - IT Communication Office (2015-2017)
     technologies: 
@@ -33,6 +35,31 @@ experience:
       - PHP and Laravel
       - Coldfusion and ActionScript
       - "Frontend: HTML, CSS, JavaScript"
+  
+  - position: "Lead Programmer"
+    company: "AC Incorporated"
+    location: "Valparaiso, IN"
+    type: "Full-time"
+    start_date: "2010"
+    end_date: "2011"
+    description: Developed custom software solutions for clients as well as supporting existing portfolio (ScoreCorrect, Dynaconnex, etc.)
+    technologies:
+      - VB, C#, .NET
+      - PHP and MySQL
+
+  - position: "Software Developer, IT Director"
+    company: "Genesis, Dynaconnex, Rainy Day Foundation, ScoreCorrect"
+    location: "Valparaiso, IN"
+    type: "Full-time"
+    start_date: "2008"
+    end_date: "2011"
+    description: Developed software solutions for a series of small businesses and non-profits through various merges and acquisitions. Went from junior developer to IT Director over the course of less than three years.
+    technologies:
+      - C++
+      - VB, C#, .NET
+      - MS SQL Server
+      - JavaScript, HTML, CSS
+
 
   - position: "Software Engineer (Consultant)"
     company: "Rume Health"
@@ -40,6 +67,7 @@ experience:
     type: "Contract"
     start_date: "2022"
     end_date: "2025"
+    description: Provided software engineering consulting for a health tech startup. Helped recover millions in automating insurance claims processing, insurance discovery, and health information systems integrations. 
     technologies:
       - Python, Flask, and FastAPI
       - Node.js
@@ -48,17 +76,18 @@ experience:
       - AWS and Cloud Infrastructure
       - Browser Extensions development
   
-  - position: "Lead Programmer"
-    company: "AC Incorporated"
-    location: "Valparaiso, IN"
-    type: "Full-time"
-    start_date: "2010"
-    end_date: "2011"
-    description: Developed custom software solutions for clients
+  - position: "Software Engineer (Consultant)"
+    company: "Scranton University"
+    location: "Huntington Beach, CA (Remote)"
+    type: "Contract"
+    start_date: "2013"
+    end_date: "2014"
+    description: Refactored and modernized legacy PHP including campus calendar application. Helped migrate to a content management system Cascade Server.
     technologies:
-      - VB, C#, .NET
-      - PHP and MySQL
-  
+      - PHP
+      - HTML, CSS, JavaScript
+      - Java, Velocity, Cascade Server
+
 
 
 # Template for additional experience entries
