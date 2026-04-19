@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics Playground</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #0b0f1a 0%, #03040a 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #e6edf7;
+    user-select: none;
+  }
+  canvas {
+    display: block;
+    position: absolute;
+    inset: 0;
+    cursor: crosshair;
+  }
+  .panel {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    padding: 14px 16px;
+    background: rgba(10, 15, 30, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(120, 180, 255, 0.18);
+    border-radius: 12px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    max-width: 280px;
+    pointer-events: auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  }
+  .panel h1 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8bd1ff;
+    font-weight: 600;
+  }
+  .panel kbd {
+    display: inline-block;
+    padding: 1px 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 11px;
+    color: #c7e0ff;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+  }
+  .row label {
+    flex: 0 0 82px;
+    color: #9fb4d4;
+    font-size: 11.5px;
+  }
+  .row input[type="range"] {
+    flex: 1;
+    accent-color: #8bd1ff;
+  }
+  .stats {
+    position: fixed;
+    bottom: 12px;
+    right: 14px;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 11px;
+    color: rgba(180, 200, 230, 0.6);
+    pointer-events: none;
+  }
+  button {
+    background: rgba(139, 209, 255, 0.1);
+    border: 1px solid rgba(139, 209, 255, 0.3);
+    color: #c7e0ff;
+    padding: 4px 10px;
+    font-size: 11.5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover { background: rgba(139, 209, 255, 0.22); }
+  .back {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    text-decoration: none;
+    color: rgba(180, 200, 230, 0.7);
+    font-size: 12px;
+    padding: 6px 12px;
+    border: 1px solid rgba(180, 200, 230, 0.2);
+    border-radius: 8px;
+    background: rgba(10, 15, 30, 0.45);
+    backdrop-filter: blur(10px);
+  }
+  .back:hover { color: #8bd1ff; border-color: rgba(139, 209, 255, 0.4); }
+</style>
+</head>
+<body>
+<canvas id="stage"></canvas>
+
+<div class="panel">
+  <h1>Physics Playground</h1>
+  <div style="color:#9fb4d4;margin-bottom:8px;">
+    <b style="color:#c7e0ff">Click &amp; drag</b> — fling particles<br>
+    <b style="color:#c7e0ff">Hold <kbd>Shift</kbd></b> — repel<br>
+    <b style="color:#c7e0ff">Double-click</b> — explosion<br>
+    <b style="color:#c7e0ff"><kbd>Space</kbd></b> — toggle gravity<br>
+    <b style="color:#c7e0ff"><kbd>C</kbd></b> — toggle connections
+  </div>
+  <div class="row">
+    <label>Particles</label>
+    <input type="range" id="countSlider" min="40" max="600" value="220">
+  </div>
+  <div class="row">
+    <label>Gravity</label>
+    <input type="range" id="gravSlider" min="0" max="100" value="30">
+  </div>
+  <div class="row">
+    <label>Attraction</label>
+    <input type="range" id="attrSlider" min="0" max="100" value="55">
+  </div>
+  <div class="row" style="margin-top:8px;gap:6px;">
+    <button id="resetBtn">Reset</button>
+    <button id="burstBtn">Burst</button>
+  </div>
+</div>
+
+<a href="index.html" class="back">← back to resume</a>
+<div class="stats" id="stats">—</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById('stage');
+  const ctx = canvas.getContext('2d', { alpha: false });
+  const statsEl = document.getElementById('stats');
+
+  let W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // ── State ────────────────────────────────────────────────────────────────
+  const state = {
+    gravity: 0.3,
+    attraction: 55,
+    pointer: { x: W / 2, y: H / 2, active: false, repel: false, vx: 0, vy: 0, px: 0, py: 0 },
+    showConnections: true,
+    gravityOn: true,
+    particles: [],
+    targetCount: 220,
+  };
+
+  // Pleasing hue palette (cool neons)
+  const palette = [
+    [200, 85, 70], // cyan
+    [215, 80, 65], // blue
+    [280, 70, 70], // violet
+    [320, 70, 72], // pink
+    [170, 75, 65], // teal
+  ];
+
+  function makeParticle(x, y, vx = 0, vy = 0) {
+    const hueBase = palette[(Math.random() * palette.length) | 0];
+    const jitter = (Math.random() - 0.5) * 20;
+    return {
+      x, y,
+      px: x - vx,
+      py: y - vy,
+      r: 1.8 + Math.random() * 2.8,
+      h: (hueBase[0] + jitter + 360) % 360,
+      s: hueBase[1],
+      l: hueBase[2],
+      life: 1,
+    };
+  }
+
+  function seed(n) {
+    state.particles.length = 0;
+    for (let i = 0; i < n; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const radius = Math.random() * Math.min(W, H) * 0.35;
+      const cx = W / 2 + Math.cos(angle) * radius;
+      const cy = H / 2 + Math.sin(angle) * radius;
+      const speed = 0.8 + Math.random() * 1.2;
+      const vx = -Math.sin(angle) * speed;
+      const vy = Math.cos(angle) * speed;
+      state.particles.push(makeParticle(cx, cy, vx, vy));
+    }
+  }
+  seed(state.targetCount);
+
+  // ── Input ────────────────────────────────────────────────────────────────
+  function setPointer(e, active) {
+    const p = state.pointer;
+    const rect = canvas.getBoundingClientRect();
+    const nx = (e.clientX ?? e.touches?.[0]?.clientX) - rect.left;
+    const ny = (e.clientY ?? e.touches?.[0]?.clientY) - rect.top;
+    p.x = nx; p.y = ny;
+    if (active !== undefined) p.active = active;
+  }
+
+  canvas.addEventListener('pointermove', (e) => setPointer(e));
+  canvas.addEventListener('pointerdown', (e) => {
+    setPointer(e, true);
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener('pointerup', (e) => { state.pointer.active = false; });
+  canvas.addEventListener('pointercancel', () => { state.pointer.active = false; });
+  canvas.addEventListener('dblclick', (e) => {
+    setPointer(e);
+    explode(state.pointer.x, state.pointer.y, 1);
+  });
+  canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Shift') state.pointer.repel = true;
+    if (e.code === 'Space') { state.gravityOn = !state.gravityOn; e.preventDefault(); }
+    if (e.key === 'c' || e.key === 'C') state.showConnections = !state.showConnections;
+  });
+  window.addEventListener('keyup', (e) => {
+    if (e.key === 'Shift') state.pointer.repel = false;
+  });
+
+  function explode(x, y, strength = 1) {
+    for (const p of state.particles) {
+      const dx = p.x - x, dy = p.y - y;
+      const d2 = dx * dx + dy * dy + 200;
+      const f = 4500 * strength / d2;
+      const d = Math.sqrt(d2);
+      const vx = (dx / d) * f;
+      const vy = (dy / d) * f;
+      p.px = p.x - vx;
+      p.py = p.y - vy;
+    }
+  }
+
+  // ── Controls ─────────────────────────────────────────────────────────────
+  const countSlider = document.getElementById('countSlider');
+  const gravSlider = document.getElementById('gravSlider');
+  const attrSlider = document.getElementById('attrSlider');
+  countSlider.addEventListener('input', () => {
+    state.targetCount = +countSlider.value;
+    const diff = state.targetCount - state.particles.length;
+    if (diff > 0) {
+      for (let i = 0; i < diff; i++) {
+        state.particles.push(makeParticle(
+          Math.random() * W,
+          Math.random() * H,
+          (Math.random() - 0.5) * 2,
+          (Math.random() - 0.5) * 2
+        ));
+      }
+    } else if (diff < 0) {
+      state.particles.length = state.targetCount;
+    }
+  });
+  gravSlider.addEventListener('input', () => {
+    state.gravity = (+gravSlider.value) / 100;
+  });
+  attrSlider.addEventListener('input', () => {
+    state.attraction = +attrSlider.value;
+  });
+  document.getElementById('resetBtn').addEventListener('click', () => seed(state.targetCount));
+  document.getElementById('burstBtn').addEventListener('click', () =>
+    explode(state.pointer.x || W / 2, state.pointer.y || H / 2, 1.5));
+
+  // ── Simulation ───────────────────────────────────────────────────────────
+  // Verlet integration with spatial hashing for O(n) neighbor lookups.
+  const CELL = 60;
+  const grid = new Map();
+  function gridKey(cx, cy) { return cx * 16384 + cy; }
+
+  function step(dt) {
+    const p = state.pointer;
+    p.vx = p.x - p.px;
+    p.vy = p.y - p.py;
+    p.px = p.x; p.py = p.y;
+
+    const parts = state.particles;
+    const g = state.gravityOn ? state.gravity : 0;
+    const attrStrength = state.attraction / 55;
+
+    // 1) Apply forces & integrate (Verlet)
+    for (let i = 0; i < parts.length; i++) {
+      const pt = parts[i];
+      let ax = 0, ay = g;
+
+      if (p.active) {
+        const dx = p.x - pt.x;
+        const dy = p.y - pt.y;
+        const d2 = dx * dx + dy * dy + 120;
+        const d = Math.sqrt(d2);
+        const sign = p.repel ? -1 : 1;
+        const f = sign * (260 * attrStrength) / d2;
+        ax += (dx / d) * f * 60;
+        ay += (dy / d) * f * 60;
+      } else {
+        // Gentle drift toward a rotating field - keeps things lively when idle
+        const dx = p.x - pt.x, dy = p.y - pt.y;
+        const d2 = dx * dx + dy * dy + 400;
+        const f = (40 * attrStrength) / d2;
+        ax += (-dy) * f * 0.6;
+        ay += (dx) * f * 0.6;
+      }
+
+      const vx = (pt.x - pt.px) * 0.995;
+      const vy = (pt.y - pt.py) * 0.995;
+      pt.px = pt.x;
+      pt.py = pt.y;
+      pt.x += vx + ax * dt * dt;
+      pt.y += vy + ay * dt * dt;
+
+      // Walls with restitution
+      if (pt.x < pt.r) { pt.x = pt.r; pt.px = pt.x + vx * 0.6; }
+      else if (pt.x > W - pt.r) { pt.x = W - pt.r; pt.px = pt.x + vx * 0.6; }
+      if (pt.y < pt.r) { pt.y = pt.r; pt.py = pt.y + vy * 0.6; }
+      else if (pt.y > H - pt.r) { pt.y = H - pt.r; pt.py = pt.y + vy * 0.6; }
+    }
+
+    // 2) Pair collisions via spatial grid
+    grid.clear();
+    for (let i = 0; i < parts.length; i++) {
+      const pt = parts[i];
+      const cx = (pt.x / CELL) | 0;
+      const cy = (pt.y / CELL) | 0;
+      const k = gridKey(cx, cy);
+      let cell = grid.get(k);
+      if (!cell) { cell = []; grid.set(k, cell); }
+      cell.push(i);
+      pt._cx = cx; pt._cy = cy;
+    }
+
+    for (let i = 0; i < parts.length; i++) {
+      const a = parts[i];
+      for (let ox = -1; ox <= 1; ox++) {
+        for (let oy = -1; oy <= 1; oy++) {
+          const cell = grid.get(gridKey(a._cx + ox, a._cy + oy));
+          if (!cell) continue;
+          for (const j of cell) {
+            if (j <= i) continue;
+            const b = parts[j];
+            const dx = b.x - a.x;
+            const dy = b.y - a.y;
+            const rSum = a.r + b.r;
+            const d2 = dx * dx + dy * dy;
+            if (d2 > 0 && d2 < rSum * rSum) {
+              const d = Math.sqrt(d2);
+              const overlap = (rSum - d) * 0.5;
+              const nx = dx / d, ny = dy / d;
+              a.x -= nx * overlap;
+              a.y -= ny * overlap;
+              b.x += nx * overlap;
+              b.y += ny * overlap;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // ── Render ───────────────────────────────────────────────────────────────
+  let last = performance.now();
+  let frames = 0, fpsTimer = 0, fps = 0;
+
+  function render(now) {
+    const dt = Math.min((now - last) / 16.6667, 2.5);
+    last = now;
+    frames++;
+    fpsTimer += dt;
+    if (fpsTimer > 30) { fps = Math.round(frames * 60 / fpsTimer); frames = 0; fpsTimer = 0; }
+
+    step(dt);
+
+    // Motion-blur / trail: translucent fill instead of clearRect
+    ctx.fillStyle = 'rgba(3, 4, 10, 0.22)';
+    ctx.fillRect(0, 0, W, H);
+
+    const parts = state.particles;
+
+    // Connections (constellations)
+    if (state.showConnections) {
+      ctx.lineWidth = 1;
+      const MAX_D2 = 110 * 110;
+      for (const [key, cell] of grid) {
+        for (let i = 0; i < cell.length; i++) {
+          const a = parts[cell[i]];
+          for (let ox = 0; ox <= 1; ox++) {
+            for (let oy = (ox === 0 ? 0 : -1); oy <= 1; oy++) {
+              const cell2 = grid.get(gridKey(a._cx + ox, a._cy + oy));
+              if (!cell2) continue;
+              for (const j of cell2) {
+                if (j <= cell[i]) continue;
+                const b = parts[j];
+                const dx = b.x - a.x, dy = b.y - a.y;
+                const d2 = dx * dx + dy * dy;
+                if (d2 < MAX_D2) {
+                  const alpha = (1 - d2 / MAX_D2) * 0.35;
+                  ctx.strokeStyle = `hsla(${(a.h + b.h) / 2}, 80%, 70%, ${alpha})`;
+                  ctx.beginPath();
+                  ctx.moveTo(a.x, a.y);
+                  ctx.lineTo(b.x, b.y);
+                  ctx.stroke();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Particles with velocity-based glow
+    ctx.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < parts.length; i++) {
+      const pt = parts[i];
+      const vx = pt.x - pt.px, vy = pt.y - pt.py;
+      const speed = Math.min(Math.sqrt(vx * vx + vy * vy), 8);
+      const glow = 1 + speed * 0.8;
+
+      const grad = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, pt.r * 4 * glow);
+      grad.addColorStop(0, `hsla(${pt.h}, ${pt.s}%, ${Math.min(pt.l + speed * 4, 90)}%, 0.9)`);
+      grad.addColorStop(0.4, `hsla(${pt.h}, ${pt.s}%, ${pt.l}%, 0.25)`);
+      grad.addColorStop(1, `hsla(${pt.h}, ${pt.s}%, ${pt.l}%, 0)`);
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, pt.r * 4 * glow, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = `hsl(${pt.h}, 100%, 92%)`;
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, pt.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalCompositeOperation = 'source-over';
+
+    // Pointer indicator
+    if (state.pointer.active) {
+      const p = state.pointer;
+      const ringColor = p.repel ? '255, 120, 140' : '139, 209, 255';
+      ctx.strokeStyle = `rgba(${ringColor}, 0.6)`;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 22 + Math.sin(now / 140) * 3, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.strokeStyle = `rgba(${ringColor}, 0.25)`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 42, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    statsEl.textContent = `${parts.length} particles · ${fps || '—'} fps · ${state.gravityOn ? 'gravity on' : 'zero-g'}${state.pointer.repel ? ' · repel' : ''}`;
+
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
+})();
+</script>
+</body>
+</html>
